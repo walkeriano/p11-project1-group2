@@ -15,6 +15,12 @@
   --lighter_gray: #E6E6E6;
 }
 
+/* General Styles */
+
+a{
+  text-decoration: none;
+}
+
 
 body{
   margin: 0;
@@ -26,18 +32,78 @@ header{
   height: 80px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   position: fixed;
-  z-index: 1;
+  z-index: 10;
   background-color:white;
 }
 
+header .nav{
+  position: absolute;
+  z-index: 11;
+  top: 0px;
+  left: 0px;
+  height: 100vh;
+  width: 30vw;
+  background-color: white;
+  padding-top: 100px;
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  transition: transform .5s ease-out;
+  box-shadow: 0 1px 4px var(--lighter_gray);
+}
+
+header input[type="checkbox"]:checked ~ nav{
+  transform: none;
+}
+
+header .nav ul{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100%;
+  width: 64%;
+  gap: 40px;
+  margin: 0 auto;
+  padding: 0;
+  font-weight: 600;
+}
+
+header .nav ul li{
+  list-style: none;
+}
+
+header .nav ul li a{
+  color: var(--dark_gray);
+}
+
 .logo-endor{
-  height: 35%;
+  width: 200px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.main_nav input[type="checkbox"]{
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  margin: 0;
+  opacity: 0;
+  left: 5%;
+  z-index: 100;
+  cursor: pointer;
 }
 
 .cont-menu{
-  width: 15%;
+  position: absolute;
+  margin: 0;
+  z-index: 15;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 5%;
 }
 
 .circle-one{
@@ -61,7 +127,8 @@ header{
   display:flex;
   align-items: center;
   justify-content: end;
-  width: 15%;
+  position: absolute;
+  right: 5%;
 }
 
 .nav-contact a{
