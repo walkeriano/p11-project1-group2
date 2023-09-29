@@ -7,7 +7,8 @@
 /* VARIABLES */
 
 :root{
-  --blue: #1e90ff;
+  --blue_endor: #0E2DA5;
+  --dark_blue: #00164E;
   --white: #;
   --gray: #;
   --dark_gray: #2E2E2E;
@@ -27,6 +28,9 @@ body{
   font-family:Inter;
 }
 
+
+/* ESTILOS HEADER */
+
 header{
   width: 100%;
   height: 80px;
@@ -38,6 +42,7 @@ header{
   background-color:white;
 }
 
+/* BURGER NAV */
 header .nav{
   position: absolute;
   z-index: 11;
@@ -60,6 +65,7 @@ header input[type="checkbox"]:checked ~ nav{
 header .nav ul{
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: flex-start;
   height: 100%;
   width: 64%;
@@ -74,13 +80,18 @@ header .nav ul li{
 }
 
 header .nav ul li a{
-  color: var(--dark_gray);
+  font-size: 22px;
+  padding: 5px 10px;
+  transition: all .1s ease-out;
 }
 
-.logo-endor{
-  width: 200px;
-  height: auto;
-  margin: 0 auto;
+header .nav ul li a:hover{
+  background-color: var(--blue_endor);
+  color: white;
+}
+
+header .nav ul li a{
+  color: var(--dark_gray);
 }
 
 .main_nav input[type="checkbox"]{
@@ -94,6 +105,16 @@ header .nav ul li a{
   cursor: pointer;
 }
 
+
+
+
+/* LOGO */
+
+.logo-endor{
+  width: 200px;
+  height: auto;
+  margin: 0 auto;
+}
 .cont-menu{
   position: absolute;
   margin: 0;
@@ -133,16 +154,21 @@ header .nav ul li a{
 
 .nav-contact a{
   width:30px;
-  height: 30px;
+  height: auto;
   margin-left: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.icon-btn{
-  width:22px;
+.nav-contact .icon-btn{
+  width: 100%;
 }
+
+
+
+/* ESTILOS TEAM */
+
 
 .cont-all-img{
   width:100%;
@@ -192,7 +218,9 @@ header .nav ul li a{
   align-items: start;
   padding-left:10%;
   color:white;
-  z-index: 4;
+  z-index: 6;
+  opacity: 1;
+  transition: opacity .2s ease-in-out;
   background: linear-gradient(#00000000, #1a1a1a);
 }
 
@@ -215,6 +243,9 @@ header .nav ul li a{
   display: flex;
   align-items: center;
   justify-content: center;
+  position: absolute;
+  z-index: 6;
+  bottom: 35px;
 }
 
 .btn-social a{
@@ -246,6 +277,111 @@ header .nav ul li a{
 
 
 
+/* MEMBER INFO */
+
+.member-view{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  background-image: linear-gradient(var(--blue_endor), var(--dark_blue));
+  color: white;
+  text-align: center;
+  display: flex;
+  opacity: 0;
+  transition: opacity .2s ease-in-out;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.member-role{
+  position: relative;
+  width: 70%;
+}
+
+.member-role .member-role-title{
+  width: auto;
+  font-size: 20px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid white;
+  margin-bottom: 0;
+  display: inline-block;
+}
+
+.member-role .member-name{
+  font-size: 32px;
+  margin: 10px 0;
+  font-weight: 600;
+}
+
+.member-role .btn-social{
+  bottom: -30px;
+  width: 100%;
+  gap: 10px;
+}
+
+.member-role .btn-social a{
+  margin: 0;
+}
+
+.member-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.member-info .member-info-section{
+  margin: 10px 0;
+}
+
+.member-info .label1{
+  font-size: 14px;
+  margin: 2px 0;
+}
+.member-info .label2{
+  font-size: 18px;
+  font-weight: 600;
+  margin: 4px 0;
+}
+
+.member-info .member-info-tags{
+  margin: 20px 0;
+  width: 100%;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  gap: 15px;
+}
+
+.member-info-tags .tag{
+  padding: 5px 10px;
+  border: 1px solid white;
+  border-radius: 7px;
+}
+
+
+.cont-img input[type="checkbox"]:checked ~ .member-view{
+  opacity: 1;
+}
+
+.cont-img input[type="checkbox"]:checked ~ .info-user{
+  opacity: 0;
+}
+
+.member-checkbox{
+  position: absolute;
+  z-index: 6;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+
 /* CONTENT MEMBER ANIMATION */
 
 /* PROBLEMAS AL HACER ESTO SOLO CON CSS:
@@ -255,22 +391,6 @@ header .nav ul li a{
 */
 
 /*
-.member-scroll{
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-.member-checkbox{
-  position: absolute;
-  z-index: 4;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  opacity: 0;
-  cursor: pointer;
-}
-
 .cont-img .member-checkbox:checked ~ .content-member{
   transform: none;
 
@@ -286,7 +406,6 @@ header .nav ul li a{
   background-color: blueviolet;
 }
 */
-
 
 /* CONTENT MEMBER */
 
@@ -350,9 +469,54 @@ header .nav ul li a{
 
 
 
-@media screen and (max-width: 1000px) {
-  .nav{
-    background-color: black;
+@media (max-width: 835px) {
+  .main_nav .nav{
+    width: 50vw;
+  }
+
+  .box-img{
+    flex-wrap: wrap;
+  }
+
+  .cont-img{
+    width: 50%;
+  }
+
+
+}
+
+@media (max-width: 430px) {
+
+  .main_nav .nav{
+    width: 100vw;
+  }
+
+  .cont-all-img{
+    padding-top: 80px;
+    height: auto;
+  }
+
+  .cont-img{
+    width: 100%;
+    height: 500px;
+  }
+
+  .logo-endor{
+    width: 130px;
+  }
+
+  .nav-contact a{
+    width: 20px;
+  }
+
+  .nav-contact a .icon-btn{
+    width: 100%;
+  }
+}
+
+@media (max-width: 310px){
+  .logo-endor{
+    width: 100px;
   }
 }
 
